@@ -43,6 +43,9 @@ const WeatherChart = ({ forecast }) => {
   return <canvas ref={canvasRef} id="weather-chart"></canvas>;
 };
 
+
+
+//Specifying proptypes
 WeatherChart.propTypes = {
   forecast: PropTypes.arrayOf(
     PropTypes.shape({
