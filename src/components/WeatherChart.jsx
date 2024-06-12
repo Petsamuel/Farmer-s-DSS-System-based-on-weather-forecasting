@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import Chart from "chart.js/auto";
 
-const WeatherChart = ({ forecast }) => {
+const WeatherChart = ({ forecast = [] }) => {
   const chartRef = useRef(null);
   const canvasRef = useRef(null);
 

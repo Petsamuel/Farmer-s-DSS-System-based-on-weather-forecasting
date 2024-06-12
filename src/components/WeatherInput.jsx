@@ -19,7 +19,7 @@ const WeatherInput = (props) => {
 //Specifying proptypes
 WeatherInput.propTypes = {
   city: PropTypes.string.isRequired,
-  setCity: PropTypes.string
+  setCity: PropTypes.func.isRequired
 };
 
 export default WeatherInput;
