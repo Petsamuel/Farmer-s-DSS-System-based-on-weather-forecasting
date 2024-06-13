@@ -1,4 +1,4 @@
-const API_KEY = "802af7161aeec58e133b5ae3bdc64744";
+const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://api.openweathermap.org/data/2.5";
 
 export const getWeatherData = async (city) => {
@@ -14,8 +14,8 @@ export const getWeatherData = async (city) => {
     //   throw new Error("HTTP error");
     // }
 
-    if(!currentWeatherResponse.ok){
-        throw new Error(`HTTP error ${currentWeatherResponse.status}`)
+    if (!currentWeatherResponse.ok) {
+      throw new Error(`HTTP error ${currentWeatherResponse.status}`);
     }
 
     const data = await currentWeatherResponse.json();
