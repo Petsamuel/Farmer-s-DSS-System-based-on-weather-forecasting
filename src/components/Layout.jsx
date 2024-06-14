@@ -1,12 +1,14 @@
-
+import RQProviders from '../services/provider';
 
 import PropTypes from 'prop-types';
 
 const Layout = ({ children }) => {
   return (
-    <section>
-        {children}
-    </section>
+    <RQProviders>
+        <section>
+            {children}
+        </section>
+    </RQProviders>
   )
 }
 
