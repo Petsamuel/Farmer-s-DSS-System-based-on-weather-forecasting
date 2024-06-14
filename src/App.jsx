@@ -5,6 +5,7 @@ import CurrentWeather from "./components/CurrentWeather";
 import WeatherChart from "./components/WeatherChart";
 import { getWeatherData } from "./services/WeatherService";
 import "./App.css";
+import Layout from "./components/Layout";
 
 // const dummyWeatherData = {
 //   current: {
@@ -47,32 +48,34 @@ function App() {
   const [weatherData, setWeatherData] = useState(null);
 
 
- useEffect(() => {
-   const fetchWeatherData = async () => {
-     try {
-       const data = await getWeatherData(city);
-       setWeatherData(data);
-     } catch (error) {
-       console.error("Error fetching weather data:", error);
-     }
-   };
+  useEffect(() => {
+    const fetchWeatherData = async () => {
+      try {
+        const data = await getWeatherData(city);
+        setWeatherData(data);
+      } catch (error) {
+        console.error("Error fetching weather data:", error);
+      }
+    };
 
-   fetchWeatherData();
- }, [city]);
+    fetchWeatherData();
+  }, [city]);
 
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
-        <WeatherInput city={city} setCity={setCity} />
-        {weatherData && (
-          <>
-            {city && (<CurrentWeather weatherData={weatherData} />)}
-            <WeatherChart forecast={weatherData.daily} />
-          </>
-        )}
+    <Layout>
+      <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+        <div className="bg-white p-8 rounded shadow-md w-full max-w-md">
+          <WeatherInput city={city} setCity={setCity} />
+          {weatherData && (
+            <>
+              {city && (<CurrentWeather weatherData={weatherData} />)}
+              <WeatherChart forecast={weatherData.daily} />
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 
