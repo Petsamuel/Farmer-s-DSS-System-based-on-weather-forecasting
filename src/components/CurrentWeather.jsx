@@ -7,6 +7,7 @@ import weatherIcons from "../store/data.json"
 
 const CurrentWeather = (props) => {
   const { weather, main, wind, dt } = props.weatherData;
+ 
   // const weatherIconMap = {
   //   Clouds: cloudyIcon,
   //   Rain: rainIcon,
@@ -18,16 +19,14 @@ const CurrentWeather = (props) => {
   const weatherDescription = weather[0].description;
   const weatherMain = weather[0].main;
   const weatherIcon = weatherIcons[weatherMain] || weatherIcons['Clear']; // Fallback to a default icon if not mapped
+   const humidityIcon = weatherIcons["Humidity"];
+   const windSpeedIcon = weatherIcons["WindSpeed"];
 
   return (
-    <div>
+    <div> 
       <h2 className="text-2xl font-bold mb-4 flex items-center">
         {weatherDescription}
-        <img
-          src={weatherIcon}
-          alt={weatherDescription}
-          className="w-8 h-8 ml-2"
-        />
+        <img src={weatherIcon} alt={weatherIcon} className="w-10 h-10" />
       </h2>
       <div className="flex justify-between items-center">
         <div>
@@ -35,8 +34,18 @@ const CurrentWeather = (props) => {
           <div>{new Date(dt * 1000).toLocaleDateString()}</div>
         </div>
         <div>
-          <div>Humidity: {main.humidity}%</div>
-          <div>Wind Speed: {wind.speed} m/s</div>
+          <div className="flex items-center">
+            <img src={humidityIcon} alt="Humidity" className="w-6 h-6" />
+            Humidity: {main.humidity}%
+          </div>
+          <div className="flex items-center">
+            <img
+              src={windSpeedIcon}
+              alt="Wind Speed"
+              className="w-6 h-6"
+            />
+            Wind Speed: {wind.speed} m/s
+          </div>
         </div>
       </div>
     </div>

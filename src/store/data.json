@@ -13,5 +13,7 @@
   "Sand": "/assets/icons/sand.svg",
   "Ash": "/assets/icons/ash.svg",
   "Squall": "/assets/icons/squall.svg",
-  "Tornado": "/assets/icons/tornado.svg"
+  "Tornado": "/assets/icons/tornado.svg",
+  "Humidity": "/assets/icons/humidity.svg",
+  "WindSpeed": "/assets/icons/wind.svg"
 }

@@ -67,7 +67,7 @@ function App() {
         <WeatherInput city={city} setCity={setCity} />
         {weatherData && (
           <>
-            <CurrentWeather weatherData={weatherData} />
+            {city && (<CurrentWeather weatherData={weatherData} />)}
             <WeatherChart forecast={weatherData.daily} />
           </>
         )}
